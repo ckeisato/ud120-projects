@@ -30,10 +30,13 @@ features_train, features_test, labels_train, labels_test = preprocess()
 ### your code goes here ###
 
 classifier = GaussianNB()
+t0 = time()
 classifier.fit(features_train, labels_train)
+print "training time:", round(time()-t0, 3), "s"
 prediction = classifier.predict(features_test)
 accuracy = accuracy_score(prediction, labels_test)
 print(accuracy)
+
 #########################################################
 
 
