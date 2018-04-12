@@ -32,10 +32,14 @@ plt.show()
 ### visualization code (prettyPicture) to show you the decision boundary
 
 
+# Random Forrest
 
+from sklearn.ensemble import RandomForestClassifier
 
-
-
+clf = RandomForestClassifier(max_depth=2, random_state=0)
+clf.fit(features_train, labels_train)
+accuracy = clf.score(features_test, labels_test)
+print "accuracy:", accuracy
 
 
 try:
