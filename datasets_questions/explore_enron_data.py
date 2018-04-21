@@ -22,7 +22,7 @@ enron_data = pickle.load(open("../final_project/final_project_dataset.pkl", "r")
 def printNumEntries(data):
   num_entries = len(enron_data)
   print "number of entries", num_entries
-# printNumEntries(enron_data)
+printNumEntries(enron_data)
 
 def printNumFeatures(data):
   keys = list(enron_data.keys())
@@ -37,7 +37,7 @@ def printNumPois(data):
     if data[person]["poi"] == True:
       accum = accum + 1
   print "number of pois", accum
-# printNumPois(enron_data)
+printNumPois(enron_data)
 
 def getFeature(data, name, feature):
   return data[name][feature]
@@ -70,8 +70,13 @@ def getFeatures(data):
 def getNumKnownFeature(data, feature):
   accum = 0
   for person in data:
-    if data[person][feature] != "NaN":
+    if data[person][feature] == "NaN":
       accum = accum + 1
   print accum, "number of people have a known ", feature
-getNumKnownFeature(enron_data, "salary")
-getNumKnownFeature(enron_data, "email_address")
+
+# getNumKnownFeature(enron_data, "salary")
+getNumKnownFeature(enron_data, "total_payments")
+
+
+
+
